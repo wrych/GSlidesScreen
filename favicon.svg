@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="256"
+   height="256"
+   viewBox="0 0 67.733332 67.733333"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.2.2 (732a01da63, 2022-12-09, custom)"
+   sodipodi:docname="favicon"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#505050"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="2.587745"
+     inkscape:cx="132.54784"
+     inkscape:cy="144.33416"
+     inkscape:window-width="1892"
+     inkscape:window-height="1536"
+     inkscape:window-x="20"
+     inkscape:window-y="20"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2">
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient287">
+      <stop
+         style="stop-color:#b294ff;stop-opacity:1;"
+         offset="0"
+         id="stop283" />
+      <stop
+         style="stop-color:#57e6e6;stop-opacity:1;"
+         offset="0.5"
+         id="stop355" />
+      <stop
+         style="stop-color:#feffb8;stop-opacity:1;"
+         offset="1"
+         id="stop285" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient287"
+       id="linearGradient289"
+       x1="1.8697007"
+       y1="41.064846"
+       x2="65.863632"
+       y2="22.578917"
+       gradientUnits="userSpaceOnUse" />
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <text
+       xml:space="preserve"
+       style="font-size:70.5556px;line-height:1.25;font-family:Eurostile;-inkscape-font-specification:Eurostile;stroke-width:0.264583;fill-opacity:1;fill:url(#linearGradient289)"
+       x="-3.5630808"
+       y="59.407795"
+       id="text113"><tspan
+         sodipodi:role="line"
+         id="tspan111"
+         style="font-size:70.5556px;stroke-width:0.264583;fill-opacity:1;fill:url(#linearGradient289)"
+         x="-3.5630808"
+         y="59.407795">G</tspan></text>
+  </g>
+</svg>
