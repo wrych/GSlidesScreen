@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>DECTRIS Ltd.</title>
+    <script src="js/main.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/spinner.css">
+</head>
+
+<body>
+    <div id="start-menu" class="menu">
+        <h1>Google Slides Screen</h1>
+        <form>
+            <div class="form-grid-container">
+                <div>
+                    <label for="url">Presentation URL</label>
+                </div>
+                <div class="input-container">
+                    <input type="url" name="url" id="url"
+                        placeholder="https://docs.google.com/presentation/d/e/HDASFSJHDFKSDFJKHKSDF"
+                        pattern="https://docs.google.com/presentation.*" size="100" required />
+                </div>
+                <div>
+                    <label for="delay">Duration per Slide</label>
+                </div>
+                <div>
+                    <input type="number" name="delay" id="delay" min=1 max=100 value=16 required>
+                    Seconds
+                </div>
+                <div>
+                    <label for="refresh-time">Refresh Time</label>
+                </div>
+                <div>
+                    <input type="number" name="refresh-time" id="refresh-time" min=1 max=100 value=30 required>
+                    Minutes
+                </div>
+                <div>
+                    <label for="full-screen">Display in Full-Screen</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="full-screen" id="full-screen" required>
+                </div>
+                <div>
+                    <br />
+                    <input type="button" id="start-presentation" value="Start Presentation" />
+                </div>
+            </div>
+        </form>
+    </div>
+    <div id="presentation-container" class="overlay hidden">
+        <iframe id="presentation-frame" allow="fullscreen"></iframe>
+        <div id="loader-overlay" class="overlay hidden">
+            <div class="loader-container">
+                <div class="loader menu">
+                    <h1>REFRESHING CONTENT...</h1>
+                    <div class="lds-grid">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="closer" class="close-button">
+            X
+        </div>
+    </div>
+</body>
+
+</html>
