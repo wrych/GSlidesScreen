@@ -1,3 +1,7 @@
+const extractBaseUrl = (rawUrl) => {
+    return rawUrl.split("/").slice(0, -1).join("/")
+}
+
 class PresentationHandler {
     constructor(logging) {
         this.logging = logging != undefined ? logging : true;
@@ -25,7 +29,7 @@ class PresentationHandler {
     startPresentation() {
         this.startMenu.classList.add("hidden");
         this.presentationContainer.classList.remove("hidden");
-        const presentationUrl = this.urlInput.value
+        const presentationUrl = extractBaseUrl(this.urlInput.value);
         this.fullScreen = this.fullScreenInput.checked;
         const delay = this.delayInput.value * 1000;
         const fullUrl = `${presentationUrl}/embed?rm=minimal&start=true&loop=true&delayms=${delay}`;
