@@ -3,7 +3,18 @@ const extractBaseUrl = (rawUrl) => {
 }
 
 class PresentationHandler {
-    constructor(logging) {
+    DEFAULT_AUTOPLAY = false;
+    DEFAULT_DELAY = 12*1000; //milliseconds
+    DEFAULT_REFRESH_TIME = 30*60*1000; //milliseconds
+    DEFAULT_FUllSCREEN = false;
+    LOADTIME = 1200; //milliseconds 
+
+    constructor(autoplay, url, delay, refreshTime, fullScreen, logging) {
+        this.autoplay = autoplay != undefined ? autoplay : this.DEFAULT_AUTOPLAY;
+        this.url = url != undefined ? url : "";
+        this.delay = delay != undefined ? delay : this.DEFAULT_DELAY;
+        this.refreshTime = refreshTime != undefined ? refreshTime : this.DEFAULT_REFRESH_TIME;
+        this.fullScreen = fullScreen != undefined ? fullScreen : this.DEFAULT_FUllSCREEN;
         this.logging = logging != undefined ? logging : true;
         this.presentationContainer = document.getElementById("presentation-container");
         this.presentationFrame = document.getElementById("presentation-frame");
@@ -16,14 +27,28 @@ class PresentationHandler {
         this.fullScreenInput = document.getElementById("full-screen");
         this.startPresentationButton = document.getElementById("start-presentation")
         this.interval = null;
-        this.fullScreen = false;
-        this.loadTime = 2000;
         this.addEventHandlers();
+        this.setValues(url)
+        this.log(`autoplay:      ${this.autoplay}`)
+        if (this.autoplay) {
+            this.startPresentation()
+        }
     }
 
     addEventHandlers() {
         this.startPresentationButton.addEventListener("click", () => this.startPresentation())
         this.closer.addEventListener("click", () => this.closePresentation())
+    }
+
+    setValues() {
+        this.log(`url:           ${this.url}`)
+        this.log(`delay:         ${this.delay}`)
+        this.log(`refreshTime:   ${this.refreshTime}`)
+        this.log(`fullScren:     ${this.fullScreen}`)
+        this.urlInput.value = this.url;
+        this.delayInput.value = this.delay / 1000; //seconds
+        this.refreshTimeInput.value = this.refreshTime / 60 / 1000; //minutes
+        this.fullScreenInput.checked = this.fullScreen;
     }
 
     startPresentation() {
@@ -40,7 +65,7 @@ class PresentationHandler {
         this.log(`Refresh Time: ${refreshTime} ms`);
         this.log(`URL:          ${presentationUrl}`);
         this.log(`Full URL:     ${fullUrl}`);
-        this.showLoader(this.loadTime);
+        this.showLoader(this.LOADTIME);
         this.presentationFrame.src = fullUrl;
         if (this.fullScreen) {
             this.presentationContainer.requestFullscreen();
@@ -48,7 +73,7 @@ class PresentationHandler {
         this.interval = setInterval(
             () => {
                 this.log("Refreshing Presentation...");
-                this.showLoader(this.loadTime);
+                this.showLoader(this.LOADTIME);
                 this.presentationContainer.src = this.presentationContainer.src;
             },
             refreshTime
@@ -80,5 +105,29 @@ class PresentationHandler {
 
 
 window.addEventListener("load", (event) => {
-    presentationHandler = new PresentationHandler();
+    const urlParams = new URLSearchParams(window.location.search);
+    presentationHandler = new PresentationHandler(
+        parseUrlParam(urlParams.get("autoplay"), Boolean),
+        parseUrlParam(urlParams.get("url"), String),
+        parseUrlParam(urlParams.get("delay"), Number),
+        parseUrlParam(urlParams.get("refreshtime"), Number),
+        parseUrlParam(urlParams.get("fullscreen"), Boolean),
+    );
 });
+
+const parseUrlParam = (value, expectedType) => {
+    if (value == undefined) {
+        return undefined;
+    }
+    switch (expectedType) {
+        case Boolean:
+            return value === "" || value === true || value === "true"
+            break;
+        case Number:
+            return parseInt(value)
+            break;
+        case String:
+            return String(value);
+            break;
+    }
+}
