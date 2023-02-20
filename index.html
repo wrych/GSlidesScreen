@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <title>Google Slides Screen</title>
-    <link rel="icon" href="favicon.svg"> 
+    <link rel="icon" href="favicon.svg">
     <script src="js/main.js"></script>
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="css/spinner.css">
@@ -27,14 +27,18 @@
                     <label for="delay">Duration per Slide</label>
                 </div>
                 <div>
-                    <input type="number" name="delay" id="delay" min=1 max=100 required>
-                    Seconds
+                    <div class="input-container">
+                        <input type="number" name="delay" id="delay" min=1 max=100 required>
+                    </div>
+                    Sechonds
                 </div>
                 <div>
                     <label for="refresh-time">Refresh Time</label>
                 </div>
                 <div>
+                    <div class="input-container">
                     <input type="number" name="refresh-time" id="refresh-time" min=1 max=100 required>
+                    </div>
                     Minutes
                 </div>
                 <div>
